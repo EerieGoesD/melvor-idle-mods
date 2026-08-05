@@ -9,6 +9,7 @@ Each mod lives in its own folder with a `manifest.json` at its root, ready to lo
 | Mod | Description |
 | --- | --- |
 | [synergy-guard](synergy-guard) | Stops the skill you are training the moment your Summoning synergy ends. |
+| [skill-limit](skill-limit) | Set a target number of actions or items on a skill and it stops there. |
 
 ---
 

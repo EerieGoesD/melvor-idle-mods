@@ -1,0 +1,5 @@
+{
+  "namespace": "eerieSkillLimit",
+  "setup": "setup.mjs",
+  "load": ["styles.css"]
+}
