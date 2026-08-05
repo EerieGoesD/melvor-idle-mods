@@ -1,0 +1,4 @@
+{
+  "namespace": "eerieSynergyGuard",
+  "setup": "setup.mjs"
+}
