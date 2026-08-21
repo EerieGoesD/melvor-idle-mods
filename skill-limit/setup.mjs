@@ -11,6 +11,25 @@ const MINING_ID = 'melvorD:Mining';
 const THIEVING_ID = 'melvorD:Thieving';
 const HARVESTING_ID = 'melvorItA:Harvesting';
 const ARCHAEOLOGY_ID = 'melvorAoD:Archaeology';
+const SMITHING_ID = 'melvorD:Smithing';
+const FLETCHING_ID = 'melvorD:Fletching';
+const CRAFTING_ID = 'melvorD:Crafting';
+const RUNECRAFTING_ID = 'melvorD:Runecrafting';
+const HERBLORE_ID = 'melvorD:Herblore';
+const SUMMONING_ID = 'melvorD:Summoning';
+
+/** Skills that get no bar at all */
+const EXCLUDED_SKILLS = new Set(['melvorD:Astrology', 'melvorD:Agility', 'melvorD:AltMagic']);
+
+/** Skills whose panel is too narrow for one row of controls */
+const COMPACT_SKILLS = new Set([
+  SMITHING_ID,
+  FLETCHING_ID,
+  CRAFTING_ID,
+  RUNECRAFTING_ID,
+  HERBLORE_ID,
+  SUMMONING_ID,
+]);
 
 /** Skills that place a bar on each of their own cards instead of one for the whole skill */
 const PER_ACTION_SKILLS = new Set([
@@ -143,6 +162,7 @@ function makeBar(skillID, targetID, extraClass) {
   const actionsButton = makeButton('Actions');
   const itemsButton = makeButton('Items');
   const toggleButton = makeButton('Off');
+  toggleButton.classList.add('eal-toggle');
 
   const progress = document.createElement('span');
   progress.className = 'eal-progress';
@@ -234,7 +254,7 @@ function buildSkillPanel(skill) {
 
   const startButton = getStartButton(skill);
   if (startButton !== undefined) {
-    bar.classList.add('eal-bar-inline');
+    bar.classList.add(COMPACT_SKILLS.has(skill.id) ? 'eal-bar-card' : 'eal-bar-inline');
     rowAnchor(startButton).insertAdjacentElement('beforebegin', bar);
     return;
   }
@@ -290,7 +310,7 @@ function buildCookingPanels() {
       }
     }
 
-    anchor.insertAdjacentElement('beforebegin', makeBar(COOKING_ID, category.id, 'eal-bar-inline'));
+    anchor.insertAdjacentElement('beforebegin', makeBar(COOKING_ID, category.id, 'eal-bar-card'));
   });
 }
 
@@ -488,7 +508,7 @@ export function setup(ctx) {
       if (!(skill instanceof GatheringSkill)) return;
 
       skill.on('action', (event) => onSkillAction(skill, event));
-      if (!PER_ACTION_SKILLS.has(skill.id)) buildSkillPanel(skill);
+      if (!PER_ACTION_SKILLS.has(skill.id) && !EXCLUDED_SKILLS.has(skill.id)) buildSkillPanel(skill);
     });
 
     buildAllPanels();

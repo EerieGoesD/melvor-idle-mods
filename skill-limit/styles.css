@@ -47,6 +47,8 @@
 }
 
 .eal-btn {
+  box-sizing: border-box;
+  flex: 0 0 80px;
   width: 80px;
   height: 34px;
   padding: 0;
@@ -65,10 +67,16 @@
   color: #f4f7ff;
 }
 
-.eal-btn.eal-on {
-  border-color: #46c9b0;
-  background: #46c9b0;
-  color: #08111c;
+.eal-btn.eal-toggle {
+  border-color: #e05252;
+  background: #e05252;
+  color: #ffffff;
+}
+
+.eal-btn.eal-toggle.eal-on {
+  border-color: #3fb27f;
+  background: #3fb27f;
+  color: #ffffff;
 }
 
 .eal-progress {
