@@ -147,7 +147,11 @@ function makeBar(skillID, targetID, extraClass) {
   const progress = document.createElement('span');
   progress.className = 'eal-progress';
 
-  bar.append(label, input, actionsButton, itemsButton, toggleButton, progress);
+  const controls = document.createElement('div');
+  controls.className = 'eal-controls';
+  controls.append(label, input, actionsButton, itemsButton, toggleButton);
+
+  bar.append(controls, progress);
   panels.set(targetID, { input, actionsButton, itemsButton, toggleButton, progress });
   registerTarget(skillID, targetID);
 
@@ -217,13 +221,21 @@ function getStartButton(skill) {
   return undefined;
 }
 
+/** Steps out of a button row so the bar sits above it rather than beside the button */
+function rowAnchor(button) {
+  const parent = button.parentElement;
+  if (parent === null) return button;
+  const siblings = parent.children.length;
+  return siblings > 1 ? parent : button;
+}
+
 function buildSkillPanel(skill) {
   const bar = makeBar(skill.id, skill.id);
 
   const startButton = getStartButton(skill);
   if (startButton !== undefined) {
     bar.classList.add('eal-bar-inline');
-    startButton.insertAdjacentElement('beforebegin', bar);
+    rowAnchor(startButton).insertAdjacentElement('beforebegin', bar);
     return;
   }
 
