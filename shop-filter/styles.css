@@ -1,0 +1,28 @@
+#esf-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 0 0 12px 0;
+}
+
+.esf-btn {
+  box-sizing: border-box;
+  min-width: 190px;
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #cfd8e8;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.esf-btn.esf-on {
+  border-color: #46c9b0;
+  background: #46c9b0;
+  color: #08111c;
+}

@@ -1,0 +1,39 @@
+#etw-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.etw-btn {
+  box-sizing: border-box;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #cfd8e8;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.etw-btn.etw-on {
+  border-color: #46c9b0;
+  background: #46c9b0;
+  color: #08111c;
+}
+
+#etw-bar.etw-floating {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 1040;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.6);
+}

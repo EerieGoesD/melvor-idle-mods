@@ -1,0 +1,5 @@
+{
+  "namespace": "eerieTimeWarp",
+  "setup": "setup.mjs",
+  "load": ["styles.css"]
+}

@@ -1,0 +1,4 @@
+{
+  "namespace": "eerieBankGearFilter",
+  "setup": "setup.mjs"
+}

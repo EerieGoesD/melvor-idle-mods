@@ -1,0 +1,5 @@
+{
+  "namespace": "eerieShopFilter",
+  "setup": "setup.mjs",
+  "load": ["styles.css"]
+}

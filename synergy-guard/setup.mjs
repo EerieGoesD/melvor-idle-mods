@@ -1,5 +1,11 @@
 const SUMMON_SLOTS = ['melvorD:Summon1', 'melvorD:Summon2'];
 
+let modContext;
+
+function isEnabled() {
+  return modContext.settings.section('General').get('enabled') !== false;
+}
+
 /** True while a Summoning synergy is equipped and both tablet slots still hold tablets */
 function hasActiveSynergy(player) {
   return (
@@ -21,11 +27,21 @@ function stopActiveSkill() {
 }
 
 export function setup(ctx) {
+  modContext = ctx;
+
+  ctx.settings.section('General').add({
+    type: 'switch',
+    name: 'enabled',
+    label: 'Enabled',
+    hint: 'Stop the skill when your Summoning synergy ends.',
+    default: true,
+  });
+
   const tabletPatch = ctx.patch(Player, 'consumeSynergyTablets');
   let synergyWasActive = false;
 
   tabletPatch.before(function () {
-    synergyWasActive = hasActiveSynergy(this);
+    synergyWasActive = isEnabled() && hasActiveSynergy(this);
   });
 
   tabletPatch.after(function () {

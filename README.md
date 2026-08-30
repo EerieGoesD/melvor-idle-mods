@@ -10,6 +10,11 @@ Each mod lives in its own folder with a `manifest.json` at its root, ready to lo
 | --- | --- |
 | [synergy-guard](synergy-guard) | Stops the skill you are training the moment your Summoning synergy ends. |
 | [skill-limit](skill-limit) | Set a target number of actions or items on a skill and it stops there. |
+| [auto-equip](auto-equip) | One button that equips the most expensive item you own in every slot. |
+| [time-warp](time-warp) | Run the game at a multiplier, or skip ahead a set amount of time in one press. |
+| [shop-filter](shop-filter) | Hides everything in the Shop you cannot buy right now. |
+| [unlimited-bank](unlimited-bank) | Removes the bank slot limit. |
+| [bank-gear-filter](bank-gear-filter) | A toggle in the bank that shows only equippable gear. |
 
 ## Skill Limit
 

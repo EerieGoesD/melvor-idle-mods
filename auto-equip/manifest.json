@@ -1,0 +1,5 @@
+{
+  "namespace": "eerieAutoEquip",
+  "setup": "setup.mjs",
+  "load": ["styles.css"]
+}
