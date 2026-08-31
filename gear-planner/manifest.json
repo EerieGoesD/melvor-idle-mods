@@ -1,0 +1,5 @@
+{
+  "namespace": "eerieGearPlanner",
+  "setup": "setup.mjs",
+  "load": ["styles.css"]
+}
